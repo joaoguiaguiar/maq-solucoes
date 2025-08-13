@@ -56,6 +56,8 @@
     border-radius: 20px;
     padding: 40px 30px;
     height: 100%;
+    overflow-wrap: break-word; /* garante quebra de textos longos */
+    word-wrap: break-word;
 }
 
 .contact-item {
@@ -81,6 +83,13 @@
     text-align: center;
 }
 
+/* Garantindo que textos longos dentro dos itens quebrem corretamente */
+.contact-item div h6 + p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
 @media (max-width: 992px) {
     .contact-section {
         padding: 60px 0;
@@ -101,12 +110,6 @@
     .contact-item i {
         margin-right: 0;
         margin-bottom: 15px;
-    }
-    
-    .contact-item div h6 + p {
-        word-break: break-all;
-        overflow-wrap: break-word;
-        hyphens: auto;
     }
     
     .contact-section .row {
