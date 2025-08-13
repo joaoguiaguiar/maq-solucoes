@@ -1,0 +1,41 @@
+.container__itensAbout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.container__itensAbout > div:first-child {
+  flex: 1 1 65%;
+  min-width: 300px;
+}
+
+.container__itensAbout > div:last-child {
+  flex: 0 0 auto;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark-gray, #333);
+}
+
+.card-image {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  margin: auto;
+  display: inline-block;
+  max-width: 320px;
+}
+
+.about-image-small {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}

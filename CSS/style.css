@@ -1,0 +1,289 @@
+@import url('./styles/navbar.css');
+@import url('./styles/heroSection.css');
+@import url('./styles/servicesSection.css');
+@import url('./styles/aboutSection.css');
+@import url('./styles/contactSection.css');
+@import url('./styles/footer.css');
+
+:root {
+    --primary-red: #BE2C2C;
+    --secondary-yellow: #FEC001;
+    --accent-orange: #ED7D31;
+    --dark-gray: #2C2C2C;
+    --light-gray: #F8F9FA;
+    --white: #FFFFFF;
+    --gradient-primary: linear-gradient(135deg, #BE2C2C 0%, #ED7D31 100%);
+    --gradient-secondary: linear-gradient(135deg, #FEC001 0%, #ED7D31 100%);
+    --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tiro Devanagari Sanskrit", serif !important;
+
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: var(--shadow-heavy);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-float:hover {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 25px 80px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-float i {
+    margin-top: 0;
+}
+
+.btn__home {
+    text-decoration: none;
+    background: var(--gradient-secondary);
+    color: var(--white);
+    font-weight: 600;
+    padding: 15px 50px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn__home:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.for__new::placeholder {
+    color: white !important;
+    opacity: 1;
+}
+
+.success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-content {
+    background: white;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    max-width: 500px;
+    animation: modalSlideIn 0.5s ease;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section {
+    width: 100%;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer {
+    padding: 50px 20px;
+}
+
+.footer-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hero-section::after {
+        transform: rotate(-1deg);
+    }
+
+    .service-card {
+        margin-bottom: 30px;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        margin-bottom: 2rem;
+    }
+
+    .about-section .container {
+        padding: 2rem 15px !important;
+    }
+
+    .container__itensAbout {
+        flex-direction: column;
+    }
+
+    .card-image {
+        margin-top: 2rem;
+    }
+
+    .hero-content div {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+
+    .btn__home,
+    .btn-outline-light {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer {
+        padding: 30px 15px;
+    }
+
+    .footer .row>div {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+.contact-form {
+    width: 100%;
+    padding: 15px;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.logo_mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+
+    .logo_mobile {
+        display: block;
+    }
+}

@@ -1,0 +1,122 @@
+.navbar {
+    background: white !important;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-light);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 8px 0;
+    background: white !important;
+    box-shadow: var(--shadow-medium);
+}
+
+.logo {
+    height: 45px;
+    transition: height 0.3s ease;
+    display: block;
+}
+
+.logo_mobile {
+    height: 35px;
+    display: none;
+    transition: height 0.3s ease;
+}
+
+.navbar.scrolled .logo {
+    height: 35px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--dark-gray) !important;
+    font-weight: 500;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: var(--gradient-primary);
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-red) !important;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVIDADE ADICIONADA */
+
+/* Tablets e Mobile */
+@media (max-width: 991.98px) {
+    .logo {
+        display: none;
+    }
+    
+    .logo_mobile {
+        display: block;
+    }
+    
+    .navbar-collapse {
+        margin-top: 15px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 12px;
+        box-shadow: var(--shadow-light);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 8px 0;
+        padding: 12px 20px;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background: rgba(231, 76, 60, 0.1);
+        transform: none;
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 767.98px) {
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .logo_mobile {
+        height: 32px;
+    }
+    
+    .navbar-collapse {
+        padding: 15px;
+        margin-top: 12px;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+}
