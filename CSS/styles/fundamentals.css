@@ -1,0 +1,115 @@
+.accordion {
+    --bs-accordion-border-width: 0;
+    --bs-accordion-border-radius: 0;
+}
+
+.accordion-item {
+    background: transparent;
+    border: 2px solid var(--primary-red);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-button {
+    background: transparent;
+    border: none;
+    color: var(--primary-red);
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    box-shadow: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #ff9966, #ffb366); 
+    color: var(--white);
+    box-shadow: none;
+}
+
+.accordion-button:hover {
+    background: rgba(190, 44, 44, 0.05);
+    color: var(--primary-red);
+}
+
+.accordion-button:not(.collapsed):hover {
+    background: linear-gradient(135deg, #ff8533, #ffa366); 
+}
+
+.accordion-button::after {
+    display: none; 
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+
+.accordion-button:not(.collapsed) .accordion-icon {
+    transform: rotate(45deg);
+    color: var(--white);
+}
+
+.accordion-body {
+    padding: 1.2rem 1.5rem;
+    color: var(--dark-gray);
+    background: rgba(255, 153, 102, 0.08); 
+    border-top: 1px solid rgba(255, 153, 102, 0.2);
+}
+
+.accordion-item:hover {
+    transform: translateY(-1px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+    border-color: var(--accent-orange);
+}
+
+.accordion-collapse {
+    transition: all 0.3s ease;
+}
+
+.text-danger {
+    color: var(--primary-red) !important;
+}
+
+.text-warning {
+    color: var(--secondary-yellow) !important;
+}
+
+.text-primary {
+    color: var(--accent-orange) !important;
+}
+
+.bg-light {
+    background-color: var(--light-gray) !important;
+}
+
+.accordion-button i:first-child {
+    margin-right: 1rem;
+    margin-bottom: 0 !important;
+    font-size: 1.5rem;
+}
+
+.accordion-item:has(.accordion-button:not(.collapsed)) {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--white), var(--white)) padding-box,
+                linear-gradient(135deg, #ff9966, #ffb366) border-box; /
+}
+
+@media (max-width: 768px) {
+    .accordion-button {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .accordion-button i:first-child {
+        font-size: 1.2rem;
+        margin-right: 0.8rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem;
+    }
+}

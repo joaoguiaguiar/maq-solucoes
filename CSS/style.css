@@ -4,6 +4,27 @@
 @import url('./styles/aboutSection.css');
 @import url('./styles/contactSection.css');
 @import url('./styles/footer.css');
+@import url('./styles/fundamentals.css');
+
+
+@font-face {
+    font-family: 'Red Hat Display';
+    src: url('../assets/static/fonts/Roboto_Condensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Red Hat Display';
+    src: url('../assets/static/fonts/Roboto_Condensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
 
 :root {
     --primary-red: #BE2C2C;
@@ -23,7 +44,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Tiro Devanagari Sanskrit", serif !important;
+    font-family: 'Roboto Condensed', sans-serif;
+
 
 }
 
