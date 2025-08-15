@@ -1,33 +1,34 @@
-// Configuração do envio do formulário (com try/catch)
-async function setupFormValidation() {
-    const contactForm = document.getElementById('contactForm');
+async function validaFormulario() {
+    const elementoForm = document.getElementById('contactForm');
     const telefoneInput = document.getElementById('telefone');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+    if (elementoForm) {
+        elementoForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (!validaForm(contactForm)) return;
+            if (!validaForm(elementoForm)) return;
 
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const submitBtn = elementoForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
 
             submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Enviando...';
             submitBtn.disabled = true;
 
             try {
-                // Tentativa de envio
-                const response = await fetch('https://api.staticforms.xyz/submit', {
+                const conexao = await fetch('https://api.staticforms.xyz/submit', {
                     method: 'POST',
-                    body: new FormData(contactForm),
+                    body: new FormData(elementoForm),
                     headers: { 'Accept': 'application/json' }
                 });
 
-                if (!response.ok) {
-                    throw new Error('Erro no envio');
+                if (!conexao.ok) {
+                    throw new Error(`Erro HTTP: ${conexao.status}`);
                 }
 
-                // Processa a resposta
-                await response.json();
+                // Processa a resposta 
+                const conexaoConvertida = await conexao.json();
+                
+                // Log para debug (opcional)
+                console.log('Resposta da API:', conexaoConvertida);
                 
                 // Sucesso
                 if (typeof showSuccessModal === 'function') {
@@ -35,22 +36,20 @@ async function setupFormValidation() {
                 } else {
                     alert('Mensagem enviada com sucesso!');
                 }
-                contactForm.reset();
+                elementoForm.reset();
                 
             } catch (error) {
-                // Tratamento de erros
                 console.error('Erro no envio:', error);
                 alert('Ocorreu um erro ao enviar. Por favor, tente novamente mais tarde.');
                 
             } finally {
-                // Restaura o botão em qualquer caso
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
         });
     }
 
-    // Máscara de telefone (mantida igual)
+    // Máscara de telefone 
     if (telefoneInput) {
         telefoneInput.addEventListener('input', maskTelefone);
     }

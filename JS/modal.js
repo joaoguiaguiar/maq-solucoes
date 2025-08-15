@@ -1,3 +1,5 @@
+const modal = document.getElementById('successModal');
+
 // Criação do modal dinâmico
 const modalHTML = `
 <div id="successModal" class="success-modal">
@@ -16,8 +18,7 @@ const modalHTML = `
 // Adiciona o modal ao final do body
 document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-// Referência ao modal
-const modal = document.getElementById('successModal');
+
 
 // Modal functions
 window.showSuccessModal = function() {
@@ -30,7 +31,7 @@ function closeSuccessModal() {
     setTimeout(() => modal.style.display = 'none', 300);
 }
 
-// Função para configurar os event listeners
+// Função para configurar os eventos
 function setupModalEvents() {
     // Botão de fechar (X)
     const closeX = document.getElementById('modalCloseX');
@@ -58,58 +59,3 @@ function setupModalEvents() {
 // Configura os eventos após o modal ser criado
 setupModalEvents();
 
-// Estilos do modal (mantido igual)
-const style = document.createElement('style');
-style.textContent = `
-.success-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.success-content {
-    position: relative;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    animation: modalFadeIn 0.4s ease-out;
-}
-@keyframes modalFadeIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-.btn-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-}
-.btn-close:hover { color: #000; }
-.btn-primary {
-    margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.btn-primary:hover { background-color: #218838; }
-`;
-document.head.appendChild(style);
